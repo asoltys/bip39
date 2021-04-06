@@ -3,7 +3,17 @@
   "version": "3.0.3",
   "description": "Bitcoin BIP39: Mnemonic code for generating deterministic keys",
   "main": "src/index.js",
+  "browser": "./src/index.mjs",
   "types": "./types/index.d.ts",
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "require": "./src/index.js",
+      "import": "./src/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "./src/index.mjs",
   "scripts": {
     "build": "npm run clean && tsc -p tsconfig.json",
     "clean": "rm -rf src",
@@ -38,16 +48,29 @@
     "@types/node": "11.11.6",
     "create-hash": "^1.1.0",
     "pbkdf2": "^3.0.9",
-    "randombytes": "^2.0.1"
+    "randombytes": "^2.0.1",
+    "simple-sha256": "^1.1.0"
   },
   "devDependencies": {
+    "@babel/helper-validator-identifier": "^7.12.11",
+    "@rollup/plugin-alias": "^3.1.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-inject": "^4.0.2",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@rollup/plugin-replace": "^2.4.2",
     "@types/create-hash": "1.2.0",
     "@types/pbkdf2": "3.0.0",
     "@types/randombytes": "2.0.0",
+    "buffer-es6": "^4.9.3",
+    "call-bind": "^1.0.2",
     "node-fetch": "^2.6.1",
     "nyc": "^15.0.0",
     "prettier": "1.16.4",
+    "process-es6": "^0.11.6",
     "proxyquire": "^1.7.10",
+    "rollup": "^2.44.0",
+    "rollup-plugin-node-polyfills": "^0.2.1",
     "tape": "^4.13.2",
     "tslint": "^6.1.0",
     "typescript": "3.3.4000"
